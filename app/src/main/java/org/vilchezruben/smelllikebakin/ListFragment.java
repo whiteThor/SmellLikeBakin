@@ -45,6 +45,7 @@ public class ListFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
 
         recyclerView.setLayoutManager(layoutManager);
+
         return view;
 
     }

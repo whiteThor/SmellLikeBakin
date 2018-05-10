@@ -35,5 +35,6 @@ public static final String VIEWPAGER_FRAGMENT= "fragment_viewpage";
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.placeHolder, listFragment, VIEWPAGER_FRAGMENT);
-        fragmentTransaction.commit();    }
+        fragmentTransaction.commit();
+    }
 }

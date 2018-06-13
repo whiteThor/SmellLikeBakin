@@ -11,7 +11,7 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 
 
-public class CheckBoxesFragment extends Fragment{
+public abstract class CheckBoxesFragment extends Fragment{
 
     CheckBox[] mCheckBoxes;
     private static final String KEY_CHECKED_BOXES = "key_checked_boxes";
@@ -38,7 +38,7 @@ public class CheckBoxesFragment extends Fragment{
         return view;
 
     }
-
+    public abstract String[] getContents(int index);
     private void setUpCheckBoxes(String[] contents, ViewGroup container, boolean[] checkBoxes) {
         int i =0;
         for (String content : contents) {

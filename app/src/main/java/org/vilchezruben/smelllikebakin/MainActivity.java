@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity  implements  ListFragment.OnRecipeSelectedInterface{
+public class MainActivity extends AppCompatActivity  implements  ListFragment.OnRecipeSelectedInterface, GridFragment.OnRecipeSelectedInterface{
 public static final String LIST_FRAGMENT="fragment_list";
 
 public static final String VIEWPAGER_FRAGMENT= "fragment_viewpage";
@@ -50,6 +50,19 @@ public static final String VIEWPAGER_FRAGMENT= "fragment_viewpage";
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.placeHolder, listFragment, VIEWPAGER_FRAGMENT);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onGridRecipeSelected(int index) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(ViewPageFragment.KEY_RECIPE_INDEX, index);
+        DualPaneFragment dualFragment = new DualPaneFragment();
+        dualFragment.setArguments(bundle);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.placeHolder, dualFragment, VIEWPAGER_FRAGMENT);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }

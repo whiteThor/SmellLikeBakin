@@ -20,13 +20,13 @@ public static final String KEY_RECIPE_INDEX =  "recipe_index";
         int index = getArguments().getInt(KEY_RECIPE_INDEX);
         getActivity().setTitle(Recipes.names[index]);
         View view = inflater.inflate(R.layout.fragment_viewpage, container, false);
-        final CheckBoxesFragment ingredientsFragment = new CheckBoxesFragment();
+        final IngredientsFragment ingredientsFragment = new IngredientsFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(KEY_RECIPE_INDEX, index);
         bundle.putBoolean(KEY_IS_INGREDIENT, true);
         ingredientsFragment.setArguments(bundle);
 
-        final CheckBoxesFragment directionsFragment = new CheckBoxesFragment();
+        final DirectionsFragment directionsFragment = new DirectionsFragment();
         Bundle bundleDirection = new Bundle();
         bundleDirection.putInt(KEY_RECIPE_INDEX, index);
         bundleDirection.putBoolean(KEY_IS_INGREDIENT, false);
